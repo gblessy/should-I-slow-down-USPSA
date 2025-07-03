@@ -27,10 +27,44 @@
     <section>
         <h4>This is how many seconds you need to recover missed target:</h4>
         <div id="c">if I get C: <span id="c-result">0</span> seconds</div>
-        <div id ="d">if I get D: <span id="d-result">0</span> seconds</div>
-        <div id ="m">if I get Mike: <span id="m-result">0</span> seconds</div>
+        <div id="d">if I get D: <span id="d-result">0</span> seconds</div>
+        <div id="m">if I get Mike: <span id="m-result">0</span> seconds</div>
     </section>
-    <script src="index.js"></script>
+    <script>
+        function roundToNiceNumber(x) {
+            return Number.parseFloat(x).toFixed(2);
+        }
+
+        function calculateHHF(time, points) {
+            return points / time;
+        }
+
+        function calculateTheLoss(hhf) {
+            return {
+                C: roundToNiceNumber(2 / hhf),
+                D: roundToNiceNumber(4 / hhf),
+                M: roundToNiceNumber(15 / hhf),
+            };
+        }
+
+        const calculateButton = document.getElementById("calculate");
+        const pointsInput = document.getElementById("points");
+        const timeInput = document.getElementById("time");
+        const cResult = document.getElementById("c-result");
+        const dResult = document.getElementById("d-result");
+        const mResult = document.getElementById("m-result");
+
+        calculateButton.addEventListener("click", () => {
+            const t = timeInput.value;
+            const p = pointsInput.value;
+            const hhf = calculateHHF(t, p);
+            const loss = calculateTheLoss(hhf);
+            cResult.innerText = loss.C;
+            dResult.innerText = loss.D;
+            mResult.innerText = loss.M;
+        });
+
+    </script>
 </body>
 
 </html>
