@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <head>
+        <h1>Should I slow down calculator for minor USPSA</h1>
+        <h2>Enter the max points and max time to calculate if you should slow down</h1>
+    </head>
+    <section>
+        <div class="preference">
+            <label for="time">Time in seconds:</label>
+            <input id="time" type="number">
+        </div>
+        <div class="preference">
+            <label for="points">Max points for the stage:</label>
+            <input id="points" type="number">
+        </div>
+        <button id="calculate">Calculate</button>
+    </section>
+    <section>
+        <h4>This is how many seconds you need to recover missed target:</h4>
+        <div id="c">if I get C: <span id="c-result">0</span> seconds</div>
+        <div id ="d">if I get D: <span id="d-result">0</span> seconds</div>
+        <div id ="m">if I get Mike: <span id="m-result">0</span> seconds</div>
+    </section>
+    <script src="index.js"></script>
+</body>
+
+</html>
